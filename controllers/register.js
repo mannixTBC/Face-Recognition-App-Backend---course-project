@@ -13,7 +13,7 @@ const handleRegister = (req,res,db,bcrypt) => {
         trx.insert({
             hash:hash,
             email:email
-        }).catch(err => res.send(json('can t insert')))
+        })
         .into('login')
         .returning('email')
         .then(loginEmail => {
