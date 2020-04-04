@@ -6,6 +6,7 @@ const knex = require('knex')
 const register = require('./controllers/register')
 
 
+
 const db = knex({
     client: 'pg',
     connection: {
