@@ -71,8 +71,10 @@ app.post('/signin', (req,res) => {
             res.json(user[0])
            })
            .catch(err=> res.status(400).json('invalid'))
+       }else{
+        res.status(400).json('wron user name or pasword')
        }
-       res.status(400).json('wron user name or pasword')
+       
    } ).catch(err=> res.status(400).json('can t acces database'))
 })
 
