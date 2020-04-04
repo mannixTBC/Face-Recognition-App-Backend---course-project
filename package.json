@@ -12,11 +12,11 @@
     "bcrypt-nodejs": "0.0.3",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "heroku": "^7.39.2",
     "knex": "^0.20.13",
     "pg": "^8.0.0"
   },
   "devDependencies": {
+    "heroku": "^7.39.2",
     "nodemon": "^2.0.2"
   }
 }
