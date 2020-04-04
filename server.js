@@ -4,23 +4,8 @@ const cors = require('cors');
 const app = express()
 const knex = require('knex')
 const register = require('./controllers/register')
-const { Client } = require('pg');
 
-
-const client = new Client({
-    connectionString: process.env.DATABASE_URL,
-    ssl: true,
-  });
-  
-  client.connect();
-  client.query('SELECT email FROM LOGIN;', (err, res) => {
-    if (err) throw err;
-    for (let row of res.rows) {
-      console.log(JSON.stringify(row));
-    }
-    client.end();
-  });
-
+ 
 
 const db = knex({
     client: 'pg',
