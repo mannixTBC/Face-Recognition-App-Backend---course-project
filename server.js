@@ -19,7 +19,6 @@ const db = knex({
     seeds: {
         directory: __dirname + '/db/seeds/production',
     },
-
     }
   });
 
