@@ -8,9 +8,9 @@ const register = require('./controllers/register')
  
 
 const db = knex({
-    client: 'pg',
+    client: 'postgresql',
     connection: {
-      connectionString : process.env.DATABASE_URL,
+      host : process.env.DATABASE_URL,
       ssl:true,  
     }
   });
@@ -54,14 +54,7 @@ const database = {
 app.get('/', (req,res)=>{
     res.send(database);
 })
-async function assertDatabaseConnection() {
-    return db.raw('select 1+1 as result')
-        .catch((err) => {
-            console.log('[Fatal] Failed to establish connection to database! Exiting...');
-            console.log(err);
-            process.exit(1);
-        });
-}
+
 
 assertDatabaseConnection();
 
