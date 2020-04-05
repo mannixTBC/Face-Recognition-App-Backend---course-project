@@ -13,8 +13,7 @@ const db = knex({
     connection: {
       connectionString:process.env.DATABASE_URL,
       ssl:true,
-      sslmode:verify-ca,
-      sslfactory:org.postgresql.ssl.NonValidatingFactory
+     
 
     }
   });
