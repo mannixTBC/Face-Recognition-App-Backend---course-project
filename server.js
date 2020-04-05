@@ -10,7 +10,7 @@ const register = require('./controllers/register')
 const db = knex({
     client: 'postgresql',
     connection: {
-      connectionString : DATABASE_URL,
+      connectionString :process.env.DATABASE_URL,
       ssl:true,  
     }
   });
