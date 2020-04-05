@@ -56,7 +56,7 @@ app.get('/', (req,res)=>{
 })
 
 
-assertDatabaseConnection();
+
 
 app.post('/signin', (req,res) => {
   
