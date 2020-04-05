@@ -9,9 +9,9 @@ const { Client } = require('pg');
 const client = new Client({
   connectionString: process.env.DATABASE_URL,
   ssl: true,
-});
+}).catch(err=>console.log(err));
 
-client.connect();
+client.connect().catch(err=>console.log(err));
  
 
 const db = knex({
