@@ -6,16 +6,10 @@ const knex = require('knex')
 const register = require('./controllers/register')
 const { Client } = require('pg');
 
-const client = new Client({
-  connectionString: process.env.DATABASE_URL,
-  ssl: true,
-});
 
-client.connect();
- 
 
 const db = knex({
-    client: 'pg',
+    client: Client,
     connection: {
       connectionString:process.env.DATABASE_URL,
       ssl:true
@@ -25,7 +19,6 @@ const db = knex({
 
 app.use(express.json());
 app.use(cors());
-
 
 const database = {
     users:[
