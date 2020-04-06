@@ -22,7 +22,7 @@ const db = knex({
     }
   });
 
-console.log(knex.co)
+console.log(db.select('*').from('users'))
 
 app.use(express.json());
 app.use(cors());
