@@ -12,12 +12,11 @@ const db = knex({
     client: 'pg',
     connection: {
       connectionString:process.env.DATABASE_URL,
-      ssl:true,
-      
+      ssl:false,
     }
   });
 
-console.log(process.env.DATABASE_URL)
+ 
 
 app.use(express.json());
 app.use(cors());
@@ -66,7 +65,7 @@ app.post('/signin', (req,res) => {
        const isValid = bcrypt.compareSync(req.body.password, data[0].hash)
        
        if(isValid){
-           return db.select('*').from('users')
+           return db2.select('*').from('users')
            .where('email','=',req.body.email)
            .then(user=>{
             res.json(user[0])
