@@ -4,7 +4,7 @@ const cors = require('cors');
 const app = express()
 const knex = require('knex')
 const register = require('./controllers/register')
-const { Client } = require('pg');
+
 
 
 
@@ -13,16 +13,11 @@ const db = knex({
     connection: {
       connectionString:process.env.DATABASE_URL,
       ssl:true,
-      migrations: {
-        directory: __dirname + '/db/migrations',
-    },
-    seeds: {
-        directory: __dirname + '/db/seeds/production',
-    },
+      
     }
   });
 
-console.log(db.select('*').from('users'))
+console.log(process.env.DATABASE_URL)
 
 app.use(express.json());
 app.use(cors());
@@ -61,9 +56,6 @@ const database = {
 app.get('/', (req,res)=>{
     res.send(database);
 })
-
-
-
 
 app.post('/signin', (req,res) => {
   
