@@ -75,7 +75,7 @@ app.post('/signin', (req,res) => {
         res.status(400).json('wron user name or pasword')
        }
        
-   } ).catch(err=> res.status(400).json('can t acces database'))
+   } ).catch(err=> res.status(400).json(err))
 })
 
 app.post('/register', (req,res) => {register.handleRegister(req,res,db,bcrypt)})
