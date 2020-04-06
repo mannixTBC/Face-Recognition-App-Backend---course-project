@@ -65,14 +65,14 @@ app.post('/signin', (req,res) => {
        const isValid = bcrypt.compareSync(req.body.password, data[0].hash)
        
        if(isValid){
-           return db2.select('*').from('users')
+           return db.select('*').from('users')
            .where('email','=',req.body.email)
            .then(user=>{
             res.json(user[0])
            })
-           .catch(err=> res.status(400).json('invalid'))
+           .catch(err=> res.status(400).json(err))
        }else{
-        res.status(400).json('wron user name or pasword')
+        res.status(400).json('wrong user name or pasword')
        }
        
    } ).catch(err=> res.status(400).json(err))
