@@ -63,7 +63,7 @@ app.post('/register', (req,res) => {register.handleRegister(req,res,db,bcrypt)})
 
 app.get("/profile/:id", (req,res) => {updateProfile.updateProfile(req,res,db)} )
 
-app.put('/image', (req,res) => {updateEntries.handleEntries(req,res)})
+app.put('/image', (req,res) => {updateEntries.handleEntries(req,res,db)})
 
 
 app.listen(process.env.PORT || 3000, () => {
