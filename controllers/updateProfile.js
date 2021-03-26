@@ -9,7 +9,7 @@ const {id} = req.params;
         }else{
             res.status(400).json('not found')
         }    
-    }).catch(err => res.status(400).json(JSON.stringify(err)))
+    }).catch(err => res.status(400).json('error geting user:'))
 }
 
 module.exports = {
