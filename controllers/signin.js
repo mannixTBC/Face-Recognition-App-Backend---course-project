@@ -15,7 +15,7 @@ const handleSignIn = (req,res,db,bcrypt) => {
            })
            .catch(err=> res.status(400).json(err))
        }else{
-        res.status(400).json('wrong user name or pasword')
+        res.status(400).json('wrong user name or password')
        }
        
    } ).catch(err=> res.status(400).json(err))
